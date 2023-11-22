@@ -1,0 +1,23 @@
+# Ignore local environment variables and configuration files
+.env
+.env.local
+.zshrc
+.bashrc
+.bash_profile
+
+# Ignore the JSON file containing file IDs
+file_list.json
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore logs
+logs
+*.log
+
+# Ignore node_modules
+node_modules/
+
+# Ignore other potential sensitive data
+*.pem
+*.key
