@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Fetch the list of assistants
-curl -s "https://api.openai.com/v1/assistants?order=desc&limit=100" \
+# Pagination parameters
+AFTER=""
+BEFORE=""
+LIMIT=100
+
+# Fetch the list of assistants with pagination
+curl -s "https://api.openai.com/v1/assistants?order=desc&limit=$LIMIT&after=$AFTER&before=$BEFORE" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -H "OpenAI-Beta: assistants=v1" > assistant_list.json
