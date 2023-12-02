@@ -1,6 +1,6 @@
-# OpenAI File Deletion Script
+# OpenAI File and Assistant Deletion Script
 
-This script is designed to delete files from your OpenAI account. It reads file IDs from a `file_list.json` file and uses the OpenAI API to delete each file.
+This script is designed to delete both files and assistants from your OpenAI account. It first fetches the lists of file and assistant IDs from your account and then uses the OpenAI API to delete each file and assistant.
 
 ## Prerequisites
 
@@ -22,19 +22,19 @@ Before running this script, ensure the following prerequisites are met:
 
 The script performs the following steps:
 
-1. Checks if the `file_list.json` file exists and has content.
-2. Extracts file IDs using `jq`.
-3. Loops through each file ID and sends a DELETE request to the OpenAI API.
-4. Checks if each file deletion was successful and prints a message accordingly.
-5. Informs when all files have been processed.
+1. Retrieves a list of assistants and files from the OpenAI API.
+2. Checks if the retrieved lists have content.
+3. Extracts assistant and file IDs using `jq`.
+4. Loops through each assistant and file ID, sending a DELETE request to the OpenAI API for each.
+5. Checks if each deletion (assistant or file) was successful and prints a message accordingly.
+6. Informs when all assistants and files have been processed.
 
 ## How to Run
 
-1. Place your `file_list.json` in the same directory as the script.
+1. Ensure the script `delete_openai_assets.sh` is in your working directory.
 2. Make sure the script is executable:
    ```bash
-   chmod +x delete_openai_files.sh
-   ```
+   chmod +x delete_openai_assets.sh
 3. Run the script:
    ```bash
    ./delete_openai_files.sh
